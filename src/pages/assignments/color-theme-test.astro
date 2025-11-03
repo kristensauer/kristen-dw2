@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+export const pageTitle = "Color Theme Test";
+---
+
+<Layout title={pageTitle}>
+  <h1>Color Theme Test</h1>
+  <button id="btnDark">Dark Mode</button>
+  <button id="btnLight">Light Mode</button>
+  <p>You can use this file as a template for your assignments.</p>
+  <p>
+    There are two possible layouts for assignment pages - normal and compact.
+    Normal layout features the navigation panel along the left side of the
+    screen, while compact layout makes the navigation collapse into a menu
+    button on the right side of the screen. You can enable the compact layout by
+    adding the <code>compact</code> prop to the Layout component:
+  </p>
+  <pre><code>&lt;Layout compact title="Page Title"&gt;</code></pre>
+  <p>
+    In Astro, we usually write styling in a <code>&lt;style&gt;</code> tag within
+    each component file. This lets us keep the styles for each component together
+    with the component itself. Styles that are written in one component will not
+    affect other components or pages, even if you use the same class names.
+  </p>
+</Layout>
+
+<script>
+  const btnDark = document.querySelector('#btnDark');
+
+  const setDark = function() {
+    document.documentElement.style.colorScheme = 'dark';
+  }
+
+  btnDark?.addEventListener('click', setDark);
+
+  const btnLight = document.querySelector('#btnLight');
+
+  const setLight = function() {
+    document.documentElement.style.colorScheme = 'light';
+  }
+
+  btnLight?.addEventListener('click', setLight);
+</script>
+
+
+<style is:global>
+:root {
+    --theme-dark-fg: #CFCBE9;
+    --theme-dark-bg: #011621;
+    --theme-dark-accent: #ABF3F8;
+
+    --theme-light-fg: #472BE4;
+    --theme-light-bg: #E0EDF3;
+    --theme-light-accent: #BC8F51;
+
+    color-scheme: light dark;
+
+    --color-fg: light-dark(var(--theme-light-fg), var(--theme-dark-fg));
+    --color-bg: light-dark(var(--theme-light-bg), var(--theme-dark-bg));
+    --color-accent: light-dark(var(--theme-light-accent), var(--theme-dark-accent));
+}
+</style>

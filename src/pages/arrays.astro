@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProfileCard from "@components/ProfileCard.astro";
+
+const people = [
+    {
+        name: "Kristen",
+        hometown: "Bayport",
+        school: "SUNY New Paltz",
+        age: 21,
+    },
+
+    {
+        name: "Kristen",
+        hometown: "Bayport",
+        school: "SUNY New Paltz",
+        age: 21,
+    },
+
+    {
+        name: "Kristen",
+        hometown: "Bayport",
+        school: "SUNY New Paltz",
+        age: 21,
+    },
+
+    {
+        name: "Kristen",
+        hometown: "Bayport",
+        school: "SUNY New Paltz",
+        age: 21,
+    },
+
+    {
+        name: "Kristen",
+        hometown: "Bayport",
+        school: "SUNY New Paltz",
+        age: 21,
+    },
+];
+
+const foods = [
+{
+    name: "Pizza",
+    glutenfree: "yes",
+},
+{
+    name: "Sushi",
+    glutenfree: "yes",
+},
+{
+    name: "Taco",
+    glutenfree: "no",
+},
+{
+    name: "Burger",
+    glutenfree: "no",
+},
+{
+    name: "Rice",
+    glutenfree: "yes",
+},
+{
+    name: "Wings",
+    glutenfree: "yes",
+},
+];
+---
+<Layout>
+ {people.map(function(person){
+    return <ProfileCard person={person} />
+ })}
+ {
+    foods.map(function (item) {
+        return <a href={item.glutenfree}>{item.name}</a>;
+    })
+}
+</Layout>
